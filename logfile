@@ -1,0 +1,40 @@
+LOG:  database system was shut down at 2014-08-02 22:00:14 EDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "dougakridge" does not exist
+FATAL:  database "paloozie" does not exist
+FATAL:  database "dougakridge" does not exist
+ERROR:  syntax error at or near "serial" at character 36
+STATEMENT:  CREATE TABLE paloozies (
+	ABORT pid serial PRIMARY KEY,
+	    guest_url char(42) UNIQUE NOT NULL,
+	    admin_url char(42) UNIQUE NOT NULL,
+	    name varchar(100),
+	    description varchar(160),
+	    born timestamp DEFAULT CURRENT_TIMESTAMP,
+	    startdate timestamp,
+	    location_name varchar(64),
+	    location_street varchar(100),
+	    location_zip char(5),
+	    location_state char(2),
+	    location_city varchar(64)
+	);
+ERROR:  column "147999d4e28-76p5eba1r3nbwmtcpz63a4n16ytj9q" does not exist at character 88
+STATEMENT:  INSERT INTO paloozies (guest_url, admin_url, name, description, location_name) VALUES ("147999d4e28-76p5eba1r3nbwmtcpz63a4n16ytj9q", "147999d9090-hro2bq8iywndvcx3oegv3er7or2489", "Mexican Fiesta", "I'm hosting a potluck to celebrate to Cinco De Mayo!", "Casa Blanca");
+FATAL:  role "doug" does not exist
+LOG:  database system was interrupted; last known up at 2014-08-02 22:12:14 EDT
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/17D9030
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  missing FROM-clause entry for table "paloozie" at character 8
+STATEMENT:  SELECT paloozie.name, paloozie.description, paloozie.location_name, paloozie_urls.isadmin FROM paloozie_urls, paloozies WHERE paloozie_urls.url = '147999d4e28-76p5eba1r3nbwmtcpz63a4n16ytj9q' AND paloozie_urls.pid = paloozies.pid;
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+STATEMENT:  SELECT paloozie.name, paloozie.description, paloozie.location_name, paloozie_urls.isadmin FROM paloozie_urls, paloozies WHERE paloozie_urls.url = '147999d4e28-76p5eba1r3nbwmtcpz63a4n16ytj9q' AND paloozie_urls.pid = paloozies.pid;
+LOG:  unexpected EOF on client connection with an open transaction
+FATAL:  role "doug" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

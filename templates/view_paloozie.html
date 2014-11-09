@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+	<title>Paloozie</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/view-paloozie.css') }}">
+
+</head>
+
+	<body>
+
+		<section id="main-party-description">
+
+			<img id="paloozie-picture" src="{{ url_for('static', filename='img/party1.jpg') }}">
+
+			<section id="main-nav-bar">
+				<section class="the-actual-nav-bar">
+					<img src="http://palooziedemo.com/images/app/logo.PNG" style="height: 80px;">
+				</section>
+			</section>
+			
+		</section>
+
+		{{ paloozie }}
+
+		
+
+		<section id="paloozie-item-claim"></section>
+
+	</body>
+</html>

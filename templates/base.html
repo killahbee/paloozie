@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<title>Paloozie</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+
+	{% block local_css %}
+	{% endblock %}
+
+</head>
+
+	<body>
+
+		{% block content %}
+		{% endblock %}
+
+		<script src="{{ url_for('static', filename='js/helpers.js') }}" type="text/javascript"></script>
+
+		{% block local_js %}
+		{% endblock %}
+	</body>
+</html>

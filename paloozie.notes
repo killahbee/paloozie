@@ -1,0 +1,26 @@
+PALOOZIE
+
+ : Home
+ 	- button to start creating a paloozie
+ 	- maybe some information about what paloozie is
+
+ : Create Paloozie
+ 	- create the actual paloozie
+ 		. name
+ 		. description
+ 		. start date
+ 		. start time
+ 		. location
+ 			- name [ only required field ]
+ 			- street
+ 			- zip
+ 			- state
+ 			- city
+ 		. what items to bring
+
+ 	- creates two unique links:
+ 		. a link for the party hosts
+ 		. a link for the party guests
+
+ : View Paloozie
+ 	- guests claim what items they want to bring
