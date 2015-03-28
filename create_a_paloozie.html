@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+	<title>Paloozie</title>
+
+	<link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/create.css">
+
+</head>
+
+	<body>
+        
+        <section class="top-nav-bar">
+            <section class="inner-wrapper">
+                <img src="http://placehold.it/250x40/">
+                <nav class="top-nav-list">
+                     <ul>
+                        <li class="inlinenav">
+                        <a href="#">Home</a>
+                        </li>
+                        <li class="inlinenav">
+                        <a href="#">FAQ</a>
+                        </li>
+                        <li class="inlinenav">
+                        <a href="#">Sign up</a>
+                        </li>
+                    </ul>
+               </nav>
+            </section>
+        </section>
+        
+        <section class="header-section">
+            <section class="inner-wrapper">
+                <h1>Plan Your Potluck Party with Paloozie</h1>
+                <h2>Fill in the form below to create a Paloozie with a potluck sign up sheet. Your friends will be able to visit your Paloozie to claim items to contribute. Plus, they'll have the change to use a coupon for each claimed item.</h2>
+            </section>
+            
+            <section class="inner-wrapper">
+            <form method="post" action="/create/paloozie">
+                <ul>
+                    <li>
+                    <label>Name</label>
+                    <input type="text">
+                    </li>   
+                        
+                    <li>    
+                    <label>Description</label>
+                    <input type="text">
+                    </li>
+                    
+                    <li>
+                    <label>Start Date</label>
+                    <input type="date">
+                    </li>    
+
+                    <li> 
+                    <label>Address Name</label>
+                    <input type="text">
+                    </li>    
+
+                    <li>
+                    <label>Street</label>
+                    <input type="text">
+                    </li>  
+                    
+                    <li>
+                    <label>City</label>
+                    <input type="text">
+                    </li>    
+
+                    <li>
+                    <label>Zip</label>
+                    <input type="number">
+                    </li>    
+
+                    <li>
+                    <label>State</label>
+                    <input type="text">
+                    </li>    
+                    
+                </ul>    
+        </form>
+        </section>
+            
+            <section class="button-container">
+                <button>Create Paloozie &raquo;</button>
+            </section>
+            
+        </section>
+        
+        <section>
+        </section>
+
+		<script src="/static/js/tools.js" type="text/javascript"></script>
+	</body>
+</html>

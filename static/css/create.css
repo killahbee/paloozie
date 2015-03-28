@@ -1,23 +1,29 @@
-form{display: none;}
 
 /*--------------------------------------------------------------
 0.0 - My Helpers
 --------------------------------------------------------------*/
 .inner-wrapper {
+    position: relative;
     margin: 0 auto;
     width: 960px;
 }
 
 h1 {
-    color: red;
-    font-size: 35px;
+    color: #FF4000;
+    font-size: 46px;
     font-weight: 700; 
     line-height: 55px;
 }
 
 h2 {
-    color: black;
+    color: gray;
     font-size: 22px;    
+}
+
+h2 {
+    color: gray;
+    font-size: 18px; 
+    line-height: 22px;
 }
 /*--------------------------------------------------------------
 1.0 - Navigation Bar
@@ -33,11 +39,15 @@ h2 {
     height: 40px;
 }
 
-aside {
-    float: right;
+.top-nav-list {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    
+    background-color: #eee;
 }
 
-li {
+.inlinenav {
     display: inline;
     padding-right: 10px;
 }
@@ -49,7 +59,7 @@ ul a {
 
 ul a:hover {
     text-decoration: underline;
-    color: orange;
+    color: #74DF00;
 }
 
 /*--------------------------------------------------------------
@@ -86,7 +96,17 @@ button {
     display: block;
     width: 240px;
     height: 40px;
-    background: orange;
+    background: #0174DF;
     border: none;
 }
+/*--------------------------------------------------------------
+3.0 - Create a Paloozie Form 
+--------------------------------------------------------------*/
+form {
+    padding-top:20px; 
+    padding-bottom: 20px;
+}
 
+form li {
+    padding-top:20px;
+}

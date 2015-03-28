@@ -5,21 +5,34 @@
 </head>
 <body>
     
-<ul>
-    <li>
-    <a href="#">Home</a>
-    </li>
-    <li>
-    <a href="#">About</a>
-    </li>
-    <li>
-    <a href="#">Portfolio</a>
-    </li>
-    <li>
-    <a href="#">Contact</a>
-    </li>
-</ul>    
+<form action="adminpreview.php" method="get">
+    <ul>
+        <li>
+            <label for="name">Enter your name</label>
+            <input id="name" name="name"/>
+        </li>
+        
+        <li> 
+            <label for="comments">Your comments</label>
+            <textarea id="comments" name="comments"></textarea>
+        </li>    
+        
+        <li>
+            <label for="checkbox">Check yes or no</label>
+            <input type="checkbox" id="checkbox" name="checkbox"></input>
+        </li>
     
+        <li>
+            <label for="multiple choice">Choose a favorate</label>
+            <input type="radio"/>Blue</input>
+            <input type="radio"/>Blue</input>
+            <input type="radio"/>Blue</input>
+        </li>
+    
+
+    </ul> 
+    <p><input type="submit" value="Create Paloozie"/></p>
+</form>
     
     
 </body>
