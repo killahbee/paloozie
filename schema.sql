@@ -1,41 +1,47 @@
 CREATE TABLE paloozies (
-    pid serial PRIMARY KEY,
-    name varchar(100),
-    description varchar(160),
+    id uuid PRIMARY KEY DEFAULT uuid_in(md5(now()::text)::cstring),
+    name text,
+    description text,
     born timestamp DEFAULT CURRENT_TIMESTAMP,
     startdate timestamp,
-    location_name varchar(64),
-    location_street varchar(100),
-    location_zip char(5),
-    location_state char(2),
-    location_city varchar(64)
+    location_name text,
+    location_street text,
+    location_zip varchar(5),
+    location_state varchar(2),
+    location_city text
 );
 
 CREATE TYPE rsvp AS ENUM ('going', 'notgoing', 'noresponse');
 
 CREATE TABLE invitations (
-    pid int REFERENCES paloozies(pid) ON DELETE CASCADE,
-    invitationurl char(42) NOT NULL PRIMARY KEY,
+    pid uuid REFERENCES paloozies(id) ON DELETE CASCADE,
+    invitationurl uuid PRIMARY KEY DEFAULT uuid_in(md5(now()::text)::cstring),
     ishost boolean DEFAULT FALSE,
-    useremail varchar(80),
+    useremail text,
     rsvp rsvp DEFAULT 'noresponse'
 );
 
 CREATE TABLE items (
     itemid serial PRIMARY KEY,
-    pid int REFERENCES paloozies(pid) ON DELETE CASCADE,
-    name varchar(100),
+    pid uuid REFERENCES paloozies(id) ON DELETE CASCADE,
+    name text,
     description text,
     quantity int
 );
 
 CREATE TABLE paloozie_urls (
-    pid int REFERENCES paloozies(pid) ON DELETE CASCADE,
-    url char(36) UNIQUE NOT NULL,
+    pid varchar(36),
+    url uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     isadmin boolean DEFAULT FALSE
 );
 
-INSERT INTO paloozies (name, description, location_name) VALUES ('Mexican Fiesta', 'Im hosting a potluck to celebrate to Cinco De Mayo!', 'Casa Blanca');
-
-INSERT INTO paloozie_urls (pid, url, isadmin) VALUES ('1', '147999d4e28-76p5eba1r3nbwmtcpz63a4n16ytj9q', FALSE);
-INSERT INTO paloozie_urls (pid, url, isadmin) VALUES ('1', '147999d9090-hro2bq8iywndvcx3oegv3er7or2489', TRUE);
+-- A "insert paloozie" and "add paloozie urls" transaction
+BEGIN;
+    WITH paloozie_insert AS (
+        INSERT INTO paloozies ( name ) VALUES ( 'foo' ) RETURNING id
+    ),
+    paloozie_url AS (
+        INSERT INTO paloozie_urls ( pid ) VALUES ( (SELECT id FROM paloozie_insert) ) RETURNING pid
+    )
+    INSERT INTO paloozie_urls ( pid, isadmin ) VALUES ( (SELECT pid FROM paloozie_url), TRUE ) RETURNING pid;
+COMMIT;
