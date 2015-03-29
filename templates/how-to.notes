@@ -1,0 +1,23 @@
+How to setup and run Paloozie:
+
+1) Open up a terminal
+command + space -> 'terminal'
+
+2) connect to the database by typing this into the terminal:
+autossh -M 0 -L 5432:localhost:5432 root@45.55.144.170
+
+3) The password for connecting is:
+unbreakable
+
+4) Open up a new tab in the terminal:
+command + t
+
+5) Change to the paloozie directory:
+cd Documents/paloozie/
+
+6) Now run the paloozie python file:
+python paloozie.py
+
+7) You can now view paloozie on a browser:
+http://localhost:5000/
+http://localhost:5000/create/paloozie/
