@@ -6,7 +6,7 @@ import fins
 import uuid
 import psycopg2
 
-conn = psycopg2.connect(database="paloozie", host="localhost")
+conn = psycopg2.connect(database="paloozie", user="paloozie_admin", password="unbreakable", host="localhost")
 
 app = Flask(__name__)
 
